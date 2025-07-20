@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DesiConnect Premium Plans</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(135deg, #ffe4f0, #cce2ff);
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      color: #d63384;
+    }
+    .plans {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    .plan {
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      padding: 1.5rem;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .plan.gold {
+      border-color: gold;
+    }
+    .plan.silver {
+      border-color: silver;
+    }
+    .plan.diamond {
+      border-color: #00bcd4;
+    }
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin: 1rem auto;
+      max-width: 500px;
+    }
+    li {
+      padding: 0.4rem 0;
+    }
+    button {
+      background: #d63384;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #b52a6c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Choose Your DesiConnect Premium Plan</h1>
+  <div class="plans">
+    <div class="plan silver">
+      <h2>💠 Silver</h2>
+      <ul>
+        <li>✔ Unlimited Swipes</li>
+        <li>✔ Backtrack Swipe</li>
+        <li>✔ 5 SuperDesiSwipes/week</li>
+        <li>✔ 1 Limelight/week</li>
+        <li>✔ Rematch expired matches</li>
+      </ul>
+      <button>Select Silver</button>
+    </div>
+    <div class="plan gold">
+      <h2>🏆 Gold</h2>
+      <ul>
+        <li>✔ Everything in Silver</li>
+        <li>✔ Access to ManPasand</li>
+        <li>✔ Travel Mode</li>
+        <li>✔ Incognito Mode</li>
+        <li>✔ Advanced Filters</li>
+      </ul>
+      <button>Select Gold</button>
+    </div>
+    <div class="plan diamond">
+      <h2>💎 Diamond</h2>
+      <ul>
+        <li>✔ Everything in Gold</li>
+        <li>✔ 10 SuperDesiSwipes/week</li>
+        <li>✔ 2 Compliments/week</li>
+      </ul>
+      <button>Select Diamond</button>
+    </div>
+  </div>
+</body>
+</html>
