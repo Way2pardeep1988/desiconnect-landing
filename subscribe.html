@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DesiConnect – Subscribe</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff0f6;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      color: #d63384;
+      margin: 1rem;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+    .tab {
+      padding: 0.5rem 1rem;
+      background: #ffe0f0;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: #ff66a6;
+      color: white;
+    }
+    .plans {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .plan {
+      background: white;
+      border: 2px solid #ffd6e8;
+      border-radius: 15px;
+      padding: 1.5rem;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .plan h2 {
+      margin-top: 0;
+      color: #ff4081;
+    }
+    .plan p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .plan button {
+      background: #ff66a6;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      margin-top: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .back-link {
+      margin-top: 2rem;
+      display: block;
+      color: #555;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💎 Choose Your Plan</h1>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showPlans('monthly')">Monthly</div>
+    <div class="tab" onclick="showPlans('quarterly')">Quarterly</div>
+    <div class="tab" onclick="showPlans('annual')">Annual</div>
+  </div>
+
+  <div class="plans" id="plan-container">
+    <!-- Monthly Plans by default -->
+    <div class="plan">
+      <h2>Silver</h2>
+      <p>₹149 / month</p>
+      <button onclick="subscribe('silver_monthly')">Subscribe</button>
+    </div>
+    <div class="plan">
+      <h2>Gold</h2>
+      <p>₹249 / month</p>
+      <button onclick="subscribe('gold_monthly')">Subscribe</button>
+    </div>
+    <div class="plan">
+      <h2>Diamond</h2>
+      <p>₹399 / month</p>
+      <button onclick="subscribe('diamond_monthly')">Subscribe</button>
+    </div>
+  </div>
+
+  <a href="/" class="back-link">⬅ Back to Home</a>
+
+  <script>
+    const plans = {
+      monthly: [
+        { name: 'Silver', price: '₹149 / month', id: 'silver_monthly' },
+        { name: 'Gold', price: '₹249 / month', id: 'gold_monthly' },
+        { name: 'Diamond', price: '₹399 / month', id: 'diamond_monthly' }
+      ],
+      quarterly: [
+        { name: 'Silver', price: '₹349 / 3 months', id: 'silver_quarterly' },
+        { name: 'Gold', price: '₹599 / 3 months', id: 'gold_quarterly' },
+        { name: 'Diamond', price: '₹949 / 3 months', id: 'diamond_quarterly' }
+      ],
+      annual: [
+        { name: 'Silver', price: '₹999 / year', id: 'silver_annual' },
+        { name: 'Gold', price: '₹1499 / year', id: 'gold_annual' },
+        { name: 'Diamond', price: '₹2299 / year', id: 'diamond_annual' }
+      ]
+    };
+
+    function showPlans(type) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelector(`.tab:nth-child(${type === 'monthly' ? 1 : type === 'quarterly' ? 2 : 3})`).classList.add('active');
+
+      const container = document.getElementById('plan-container');
+      container.innerHTML = '';
+      plans[type].forEach(plan => {
+        container.innerHTML += `
+          <div class="plan">
+            <h2>${plan.name}</h2>
+            <p>${plan.price}</p>
+            <button onclick="subscribe('${plan.id}')">Subscribe</button>
+          </div>
+        `;
+      });
+    }
+
+    function subscribe(productId) {
+      alert('Subscribe to: ' + productId + ' (billing integration coming soon)');
+    }
+  </script>
+
+</body>
+</html>
